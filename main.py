@@ -4,6 +4,7 @@ ROOT = '#A68DAD'
 LEVEL_1 = '#DFD3C3'
 LEVEL_2 = '#F0ECE3'
 LABEL_FRAME = 'red4'
+BUTTON = '#A68DAD'
 
 window = tkinter.Tk()
 # Setting the shape of the window (widthxheight+x-position+y-position
@@ -11,11 +12,11 @@ window.geometry('1270x690+0+0')
 window.resizable(width=False, height=False)
 window.title('Restaurant Management System')
 
-window.config(bg='#C7B198')
+window.config(bg='#C7B198',pady=20,padx=20)
 
 # *************************     LAYOUT    *********************************#
 
-top_frame = tkinter.Frame(window, bd=10, relief=tkinter.RAISED)
+top_frame = tkinter.Frame(window, bd=10)
 top_frame.config(bg=ROOT)
 top_frame.pack(side=tkinter.TOP)
 # top_frame.grid(row=0,column=0)
@@ -33,7 +34,7 @@ left_frame.pack(side=tkinter.LEFT)
 cost_frame = tkinter.Frame(left_frame, bd=4, relief=tkinter.RIDGE,bg=LEVEL_2,pady=10)
 cost_frame.pack(side=tkinter.BOTTOM)
 
-food_frame = tkinter.LabelFrame(left_frame, text='Food', bd=5, relief=tkinter.RIDGE)
+food_frame = tkinter.LabelFrame(left_frame, text='Food', bd=5, relief=tkinter.RAISED)
 food_frame.config(bg=LEVEL_2, font=('Arial', 15, 'bold'), fg=LABEL_FRAME)
 food_frame.pack(side=tkinter.LEFT)
 
@@ -48,16 +49,16 @@ cakes_frame.pack(side=tkinter.LEFT)
 
 
 # Calculator and reciept frame
-right_frame = tkinter.Frame(window, bd=15, relief=tkinter.RAISED)
+right_frame = tkinter.Frame(window, bd=10, relief=tkinter.RAISED,bg=LEVEL_1)
 right_frame.pack(side=tkinter.RIGHT)
 
-calc_frame = tkinter.Frame(right_frame, bd=1, relief=tkinter.RIDGE)
+calc_frame = tkinter.Frame(right_frame, bd=1, relief=tkinter.RIDGE,bg=LEVEL_2)
 calc_frame.pack(side=tkinter.TOP)
 
-receipt_frame = tkinter.Frame(right_frame, bd=4, relief=tkinter.RIDGE)
+receipt_frame = tkinter.Frame(right_frame, bd=4, relief=tkinter.RIDGE,bg=LEVEL_2)
 receipt_frame.pack()
 
-button_frame = tkinter.Frame(right_frame, bd=3, relief=tkinter.RIDGE)
+button_frame = tkinter.Frame(right_frame, bd=3, relief=tkinter.RIDGE,bg=LEVEL_2)
 button_frame.pack()
 
 # VARIABLES
@@ -359,14 +360,81 @@ totalcost_label.grid(row=2,column=2)
 totalcost_text = tkinter.Entry(cost_frame,font=('Arial',13,'bold'),bd=6,width=14,state='readonly',textvariable=e_totalcost)
 totalcost_text.grid(row=2,column=3,padx=40)
 
-total_button = tkinter.Button(button_frame,text='Total',font=('Arial',14,'bold'),fg='white',bg=LEVEL_2,bd=3)
-total_button.grid(row=0,column=0)
 
-receipt_button = tkinter.Button(button_frame,text='Receipt',font=('Arial',14,'bold'),fg='white',bg=LEVEL_2,bd=3)
-receipt_button.grid(row=0,column=1)
 
-save_button = tkinter.Button(button_frame,text='Save',font=('Arial',14,'bold'),fg='white',bg=LEVEL_2,bd=3)
-save_button.grid(row=0,column=2)
+# Button Frame
+total_button = tkinter.Button(button_frame,text='Total',font=('Arial',14,'bold'),fg='white',bg=BUTTON,bd=3)
+total_button.grid(row=0,column=0,padx=5)
+
+receipt_button = tkinter.Button(button_frame,text='Receipt',font=('Arial',14,'bold'),fg='white',bg=BUTTON,bd=3)
+receipt_button.grid(row=0,column=1,padx=5)
+
+save_button = tkinter.Button(button_frame,text='Save',font=('Arial',14,'bold'),fg='white',bg=BUTTON,bd=3)
+save_button.grid(row=0,column=2,padx=5)
+
+send_button = tkinter.Button(button_frame,text='Send',font=('Arial',14,'bold'),fg='white',bg=BUTTON,bd=3)
+send_button.grid(row=0,column=3,padx=5)
+
+reset_button = tkinter.Button(button_frame,text='Reset',font=('Arial',14,'bold'),fg='white',bg=BUTTON,bd=3)
+reset_button.grid(row=0,column=4,padx=5)
+
+# Textarea for receipt
+receipt_text = tkinter.Text(receipt_frame,font=('Arial',12,'bold'),bd=3,width=42,height=13)
+receipt_text.grid(row=0,column=0)
+
+# Calculator
+calc_field = tkinter.Entry(calc_frame,font=('Arial',13,'bold'),width=32,bd=4)
+calc_field.grid(row=0,column=0,columnspan=4)
+
+button7=tkinter.Button(calc_frame,text='7',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+button7.grid(row=1,column=0)
+
+button8=tkinter.Button(calc_frame,text='8',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+button8.grid(row=1,column=1)
+
+button9=tkinter.Button(calc_frame,text='9',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+button9.grid(row=1,column=2)
+
+plus_button=tkinter.Button(calc_frame,text='+',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+plus_button.grid(row=1,column=3)
+
+button4=tkinter.Button(calc_frame,text='4',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+button4.grid(row=2,column=0)
+
+button5=tkinter.Button(calc_frame,text='5',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+button5.grid(row=2,column=1)
+
+button6=tkinter.Button(calc_frame,text='6',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+button6.grid(row=2,column=2)
+
+minus_button=tkinter.Button(calc_frame,text='-',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+minus_button.grid(row=2,column=3)
+
+button1=tkinter.Button(calc_frame,text='1',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+button1.grid(row=3,column=0)
+
+button2=tkinter.Button(calc_frame,text='2',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+button2.grid(row=3,column=1)
+
+button3=tkinter.Button(calc_frame,text='3',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+button3.grid(row=3,column=2)
+
+mult_button=tkinter.Button(calc_frame,text='*',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+mult_button.grid(row=3,column=3)
+
+ans_button=tkinter.Button(calc_frame,text='Ans',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+ans_button.grid(row=4,column=0)
+
+clear_button=tkinter.Button(calc_frame,text='Clear',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+clear_button.grid(row=4,column=1)
+
+button0=tkinter.Button(calc_frame,text='0',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+button0.grid(row=4,column=2)
+
+div_button=tkinter.Button(calc_frame,text='/',font=('Arial',13,'bold'),fg=LEVEL_1,bg=BUTTON,width=6)
+div_button.grid(row=4,column=3)
+
+
 
 
 window.mainloop()
