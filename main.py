@@ -29,15 +29,16 @@ title_label.grid(row=0,column=0)
 left_frame = tkinter.Frame(window, bd=10, relief=tkinter.RIDGE,bg=LEVEL_1)
 left_frame.pack(side=tkinter.LEFT)
 
-food_frame = tkinter.LabelFrame(left_frame, text='Food', bd=10, relief=tkinter.RIDGE)
-food_frame.config(bg=LEVEL_2)
+food_frame = tkinter.LabelFrame(left_frame, text='Food', bd=5, relief=tkinter.RIDGE)
+food_frame.config(bg=LEVEL_2,font=('Arial',13,'bold'))
 food_frame.pack(side=tkinter.LEFT)
 
 drinks_frame = tkinter.LabelFrame(left_frame, text='Drinks', bd=10, relief=tkinter.RIDGE)
-food_frame.pack(side=tkinter.LEFT)
+drinks_frame.config(bg=LEVEL_2,font=('Arial',13,'bold'))
+drinks_frame.pack(side=tkinter.LEFT)
 
 cakes_frame = tkinter.LabelFrame(left_frame, text='Cakes', bd=10, relief=tkinter.RIDGE)
-food_frame.pack(side=tkinter.LEFT)
+cakes_frame.pack(side=tkinter.LEFT)
 
 cost_frame = tkinter.Frame(left_frame, bd=4, relief=tkinter.RIDGE)
 cost_frame.pack(side=tkinter.BOTTOM)
@@ -61,6 +62,8 @@ button_frame.pack()
 var1,var2,var3,var4,var5,var6,var7,var8,var9,var10,\
 var11,var12,var13,var14,var15,var16,var17,var18,var19,\
 var20,var21,var22,var23,var24,var25,var26,var27 = [tkinter.IntVar]*27
+
+e_amala,e_pounded_yam,e_jollof_rice,e_fufu,e_fried_rice,e_pepper_soup,e_yam = [tkinter.StringVar]*7
 
 
 
@@ -96,7 +99,93 @@ yam.grid(row=6,column=0,sticky=tkinter.W)
 
 # Entry Fields
 amala_entry = tkinter.Entry(food_frame,font=('arial',18,'bold'),bd=7)
+amala_entry.config(width=6, state=tkinter.DISABLED,textvariable=e_amala)
 amala_entry.grid(row=0,column=1)
+
+pounded_yam_entry = tkinter.Entry(food_frame,font=('arial',18,'bold'),bd=7)
+pounded_yam_entry.config(width=6, state=tkinter.DISABLED,textvariable=e_pounded_yam)
+pounded_yam_entry.grid(row=1,column=1)
+
+jollof_rice_entry = tkinter.Entry(food_frame,font=('arial',18,'bold'),bd=7)
+jollof_rice_entry.config(width=6, state=tkinter.DISABLED,textvariable=e_jollof_rice)
+jollof_rice_entry.grid(row=2,column=1)
+
+fufu_entry = tkinter.Entry(food_frame,font=('arial',18,'bold'),bd=7)
+fufu_entry.config(width=6, state=tkinter.DISABLED,textvariable=e_fufu)
+fufu_entry.grid(row=3,column=1)
+
+fried_rice_entry = tkinter.Entry(food_frame,font=('arial',18,'bold'),bd=7)
+fried_rice_entry.config(width=6, state=tkinter.DISABLED,textvariable=e_fried_rice)
+fried_rice_entry.grid(row=4,column=1)
+
+pepper_soup_entry = tkinter.Entry(food_frame,font=('arial',18,'bold'),bd=7)
+pepper_soup_entry.config(width=6, state=tkinter.DISABLED,textvariable=e_pepper_soup)
+pepper_soup_entry.grid(row=5,column=1)
+
+yam_entry = tkinter.Entry(food_frame,font=('arial',18,'bold'),bd=7)
+yam_entry.config(width=6, state=tkinter.DISABLED,textvariable=e_yam)
+yam_entry.grid(row=6,column=1)
+
+
+e_coke,e_fanta,e_zobo,e_kunu,e_sprite,e_malt,e_tea = [tkinter.StringVar]*7
+
+# Drinks frame items
+coke = tkinter.Checkbutton(drinks_frame,text='Coke',font=('Arial',13,'bold'))
+coke.config(onvalue=1,offvalue=0,variable=var8,bg=LEVEL_2)
+coke.grid(row=0,column=0,sticky=tkinter.W)
+
+fanta = tkinter.Checkbutton(drinks_frame,text='Fanta',font=('Arial',13,'bold'))
+fanta.config(onvalue=1,offvalue=0,variable=var9,bg=LEVEL_2)
+fanta.grid(row=1,column=0,sticky=tkinter.W)
+
+zobo = tkinter.Checkbutton(drinks_frame,text='Zobo',font=('Arial',13,'bold'))
+zobo.config(onvalue=1,offvalue=0,variable=var10,bg=LEVEL_2)
+zobo.grid(row=2,column=0,sticky=tkinter.W)
+
+kunu = tkinter.Checkbutton(drinks_frame,text='Kunu',font=('Arial',13,'bold'))
+kunu.config(onvalue=1,offvalue=0,variable=var11,bg=LEVEL_2)
+kunu.grid(row=3,column=0,sticky=tkinter.W)
+
+sprite = tkinter.Checkbutton(drinks_frame,text='Sprite',font=('Arial',13,'bold'))
+sprite.config(onvalue=1,offvalue=0,variable=var12,bg=LEVEL_2)
+sprite.grid(row=4,column=0,sticky=tkinter.W)
+
+malt = tkinter.Checkbutton(drinks_frame,text='Maltina',font=('Arial',13,'bold'))
+malt.config(onvalue=1,offvalue=0,variable=var13,bg=LEVEL_2)
+malt.grid(row=5,column=0,sticky=tkinter.W)
+
+tea = tkinter.Checkbutton(drinks_frame,text='Tea',font=('Arial',13,'bold'))
+tea.config(onvalue=1,offvalue=0,variable=var14,bg=LEVEL_2)
+tea.grid(row=6,column=0,sticky=tkinter.W)
+
+# Entry Fields
+coke_entry = tkinter.Entry(drinks_frame,font=('arial',18,'bold'),bd=7)
+coke_entry.config(width=6, state=tkinter.DISABLED,textvariable=e_coke)
+coke_entry.grid(row=0,column=1)
+
+fanta_entry = tkinter.Entry(drinks_frame,font=('arial',18,'bold'),bd=7)
+fanta_entry.config(width=6, state=tkinter.DISABLED,textvariable=e_fanta)
+fanta_entry.grid(row=1,column=1)
+
+zobo_entry = tkinter.Entry(drinks_frame,font=('arial',18,'bold'),bd=7)
+zobo_entry.config(width=6, state=tkinter.DISABLED,textvariable=e_zobo)
+zobo_entry.grid(row=2,column=1)
+
+kunu_entry = tkinter.Entry(drinks_frame,font=('arial',18,'bold'),bd=7)
+kunu_entry.config(width=6, state=tkinter.DISABLED,textvariable=e_kunu)
+kunu_entry.grid(row=3,column=1)
+
+sprite_entry = tkinter.Entry(drinks_frame,font=('arial',18,'bold'),bd=7)
+sprite_entry.config(width=6, state=tkinter.DISABLED,textvariable=e_sprite)
+sprite_entry.grid(row=4,column=1)
+
+malt_entry = tkinter.Entry(drinks_frame,font=('arial',18,'bold'),bd=7)
+malt_entry.config(width=6, state=tkinter.DISABLED,textvariable=e_malt)
+malt_entry.grid(row=5,column=1)
+
+tea_entry = tkinter.Entry(drinks_frame,font=('arial',18,'bold'),bd=7)
+tea_entry.config(width=6, state=tkinter.DISABLED,textvariable=e_tea)
+tea_entry.grid(row=6,column=1)
 
 
 
